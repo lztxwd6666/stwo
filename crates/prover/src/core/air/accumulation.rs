@@ -77,7 +77,7 @@ impl<B: Backend> DomainEvaluationAccumulator<B> {
         n_cols_per_size: [(u32, usize); N],
     ) -> [ColumnAccumulator<'_, B>; N] {
         self.sub_accumulations
-            .get_many_mut(n_cols_per_size.map(|(log_size, _)| log_size as usize))
+            .get_mut(n_cols_per_size.map(|(log_size, _)| log_size as usize))
             .unwrap_or_else(|e| panic!("invalid log_sizes: {}", e))
             .into_iter()
             .zip(n_cols_per_size)
