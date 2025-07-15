@@ -9,7 +9,7 @@
     array_windows,
     assert_matches,
     exact_size_is_empty,
-    get_many_mut,
+    get_mut,
     int_roundings,
     iter_array_chunks,
     portable_simd,
