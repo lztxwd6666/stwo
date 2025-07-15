@@ -427,7 +427,7 @@ impl SecureColumnByCoords<SimdBackend> {
     ) -> impl ExactSizeIterator<Item = SecureColumnByCoordsMutSlice<'_>> {
         let [a, b, c, d] = self
             .columns
-            .get_many_mut([0, 1, 2, 3])
+            .get_mut([0, 1, 2, 3])
             .unwrap()
             .map(|x| x.chunks_mut(chunk_size));
         izip!(a, b, c, d).map(|(a, b, c, d)| SecureColumnByCoordsMutSlice([a, b, c, d]))
@@ -638,7 +638,7 @@ impl VeryPackedSecureColumnByCoords {
     ) -> Vec<VeryPackedSecureColumnByCoordsMutSlice<'_>> {
         let [a, b, c, d] = self
             .columns
-            .get_many_mut([0, 1, 2, 3])
+            .get_mut([0, 1, 2, 3])
             .unwrap()
             .map(|x| x.chunks_mut(chunk_size));
         izip!(a, b, c, d)
